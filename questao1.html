@@ -11,7 +11,64 @@
     <link rel="stylesheet" href="bootstrap/bootstrap-4.4.1-dist/css/bootstrap.css">
     <title>Atividade Final</title>
 
-   
+   <style>
+    
+    /* Personalização de Estilo para apresentar Form na mesma página */
+     p{
+      padding-top: 5px;
+      padding-right: 6px;
+      margin-left: 50px;
+      text-align: center;
+     }
+
+     h4{
+
+      padding-top: 5px;
+      margin-left: 50px;
+      text-align: center;
+
+     }    
+
+
+
+   </style>
+
+    <!-- Script para Calcular Nota-->
+    <script>
+      function calcular_nota(){
+        var  nome = mediacheck.nomeAluno.value;
+        var  disc = mediacheck.disciplina.value;
+        var  n1 = mediacheck.nota1.value;
+        var  n2 = mediacheck.nota2.value;
+        
+        var media = (parseFloat(n1)+parseFloat(n2))/2;
+
+        document.getElementById("intro").innerHTML = "Aluno(a): " + nome + " <br> " ;
+        document.getElementById("intro2").innerHTML = "Disciplina: " + disc + " <br> ";
+
+        if(media <= 3){
+          document.getElementById("m1").innerHTML = "<br> -------------- <br> A média escolar do Aluno(a) é: " + media.toFixed(1) + "<br>";
+          document.getElementById("m2").innerHTML = "<br> -------------- <br> SITUAÇÃO: REPROVADO <br>";
+          
+
+         }
+         else if(media > 3 && media < 7){
+
+          document.getElementById("m1").innerHTML = "<br> -------------- <br> A média escolar do Aluno(a) é: " + media.toFixed(1) + "<br>";
+          document.getElementById("m2").innerHTML = "<br> -------------- <br> Situação : RECUPERAÇÃO <br>";
+          
+         }
+         
+         else{
+
+          document.getElementById("m1").innerHTML = "<br> -------------- <br> A média escolar do Aluno(a) é: " + media.toFixed(1) + "<br>";
+          document.getElementById("m2").innerHTML = "<br> -------------- <br> Situação : APROVADO <br>";
+
+         }
+         
+        
+      }
+    </script>
 
 
 
@@ -57,8 +114,8 @@
     
     <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
       <div class="col-md-5 p-lg-1 mx-auto my-3">
-        <h1 class="display-4 font-weight-normal">Questão 1</h1>
-        <p class="lead font-weight-normal">Média Aritmética</p>
+        <h1 class="display-5 font-weight-normal" style="text-align: center;">Questão 1</h1>
+        <h3 class="display-5 font-weight-normal" style="text-align: center;">Média Aritmética</h1>
       </div>
       <div class="product-device shadow-sm d-none d-md-block"></div>
       <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
@@ -70,7 +127,7 @@
 <container>
    <!-- Formulário para inserir dados -->
 
-    <form>
+    <form name="mediacheck" id="mediacheck" method="POST" action=""> 
       <div class="form-group" style="margin-left: 50px;">
         <label >Nome do Aluno</label>
         <input type="text" class="form-control" id="nomeAluno" name="nomeAluno" style="max-width: 50rem;" >
@@ -82,12 +139,29 @@
         <small id="disciplinaHelp" class="form-text text-muted">Insira a Disciplina</small>
       </div>
 
-      
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <div class="form-group" style="margin-left: 50px;">
+        <label > Primeira Nota </label>
+        <input type="number" class="form-control" id="nota1" name="nota1" style="max-width: 25rem;" >
+        <small id="nota1Help" class="form-text text-muted">Insira a Primeira Nota</small>
+      </div>
+
+      <div class="form-group" style="margin-left: 50px;">
+        <label > Segunda Nota </label>
+        <input type="number" class="form-control" id="nota2" name="nota2" style="max-width: 25rem;" >
+        <small id="nota2Help" class="form-text text-muted">Insira a Segunda Nota</small>
+      </div>
+
+
+      <button onclick="calcular_nota()" type="button" class="btn btn-primary" return="false" style="float: inline-end; margin-left: 50px;">Verificar Resultado</button>
     </form>
 
-
-
+</container> 
+<div id="boletim" class="col-12 m-5">
+    <h4 id= "intro"></h4>  <br>
+    <h4 id= "intro2"></h4> <br>
+    <p id="m1" > </p>
+    <p id="m2" > </p>
+  </div>    
 
 </container>
 
