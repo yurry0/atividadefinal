@@ -15,7 +15,7 @@
     <style>
 
       .footer {
-      position: absolute;
+      position: relative;
       bottom: 0;
       width: 100%;
       height: 60px; 
@@ -44,19 +44,19 @@
       var sal_liq;
 
       if (cargo == "Atendente"){
-        aumento = (parseFloat(num_sal) * 0,08);
+        aumento = (parseFloat(num_sal) * 0.08);
         novo_sal = (parseFloat (num_sal) + parseFloat(aumento));
         per_aumento = "(+ 8%)";
     }
 
       else if(cargo == "Estoquista"){
-        aumento = (parseFloat(num_sal) * 0,06);
+        aumento = (parseFloat(num_sal) * 0.06);
         novo_sal = (parseFloat (num_sal) + parseFloat(aumento));
         per_aumento = "(+ 6%)";
       }
 
       else if(cargo == "Gerente"){
-        aumento = (parseFloat(num_sal) * 0,03);
+        aumento = (parseFloat(num_sal) * 0.03);
         novo_sal = (parseFloat(num_sal) + parseFloat(aumento));
         per_aumento = "(+ 3%)";
       }
@@ -93,7 +93,7 @@
        "<br><b>FUNCIONÁRIO:</b> "+nome.toUpperCase()+
        "<br><b>CARGO:</b> "+cargo.toUpperCase()+
       "<br><b>SALÁRIO ATUAL:</b> "+parseFloat(num_sal).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })+
-      "<br><b>AUMENTO SALARIAL:</b> " + aumento.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })+
+      "<br><b>AUMENTO SALARIAL:</b> " + aumento.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })+ " | Taxa Percentual: "  + per_aumento +
       "<br><b>NOVO SALÁRIO:</b> "+novo_sal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })+
       "<br><b>DESC. INSS:</b> "+desconto.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })+ " | Taxa Percentual: "  + inss +
       "<br><b>SALÁRIO LIQ.:</b> "+sal_liq.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })+
@@ -150,8 +150,73 @@
     </div>
     <hr>
     <br>
+ 
+    <!-- Explicação -->
+    <div class="accordion" id="accordionExample">
+      <div class="card">
+        <div class="card-header" id="headingOne">
+          <h2 class="mb-0">
+            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" style="text-align: center;" >
+             Tabela com Informações sobre o Aumento de Salário - Clique para Abrir
+            </button>
+          </h2>
+        </div>
+    
+        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+          <div class="card-body">
+            <table style="width:40%">
+              <tr>
+                <th>Cargo</th>
+                <th>Aumento</th>
+                
+              </tr>
+              <tr>
+                <td>Atendente</td>
+                <td>8%</td>
+              </tr>
+              <tr>
+                <td>Estoquista</td>
+                <td>6%</td>
+              </tr>
+              <tr>
+                <td>Gerente</td>
+                <td>3%</td>
+              </tr>
+              
+            </table>
+            <h3 style="text-align: center;"> - - - - -</h3>
+            <table style="width:40%">
+              <tr>
+                <th>SALÁRIO BRUTO DO
+                  FUNCIONÁRIO</th>
+                <th>ALÍQUOTA PARA
+                  RECOLHIMENTO AO INSS</th>
+                
+              </tr>
+              <tr>
+                <td>até R$ 1.045,00</td>
+                <td>7,50%</td>
+              </tr>
+              <tr>
+                <td>de R$ 1.045,01 até R$ 2.089,60</td>
+                <td>9%</td>
+              </tr>
+              <tr>
+                <td>de R$ 2.089,61 até R$ 3.134,40</td>
+                <td>12%</td>
+              </tr>
+              
+            </table>
 
- <!-- Inínio da Form -->
+          </div>
+        </div>
+      </div>
+
+      <br>
+      <br>
+      <hr>
+
+ <!-- Início da Form -->
 
     <form name="salario_check" id="salario_check" method="POST" action="" > 
       <div class="form-row">
