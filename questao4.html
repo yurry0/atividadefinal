@@ -7,26 +7,143 @@
 
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" type="text/css" href="atividadefinal/starter-template.css"> 
+    <link rel="stylesheet" type="text/css" href="css/starter-template.css/"> 
     <link rel="stylesheet" href="bootstrap/bootstrap-4.4.1-dist/css/bootstrap.css">
-    <title>Atividade Final</title>
+    <title>Atividade Final - Q2</title>
+
+
 
       <script> 
-        function contracheque(){
+        function teste(){
+        var nome = check_ihc.nome_paciente.value;
+        var peso = check_ihc.peso_paciente.value;
+        var altura = check_ihc.altura_paciente.value;
+        var imc;
+        
+        // Calculo do IHC
+          imc = (parseFloat(peso) / parseFloat((altura * altura)));
+        
+        // Baixo Peso   
 
-          var funcionario = gerar_contra.funcionario.value;
-          var cargo = gerar_contra.cargo.value;
-          var salario = gerar_contra.salario.value;
-          alert(funcionario+cargo+salario);
+          if (parseFloat(imc) < 18.5){
+          
+          document.getElementById("demo").innerHTML = "-------------------------------------------------------------------" +
+          "<br>RESULTADO - IMC <br>" + 
+          "<br> <b> PACIENTE: </b>" + nome  +
+          "<br> <b> PESO: </b>" + parseFloat(peso) + 
+          "<br> <b> ALTURA: </b>" + parseFloat(altura) +
+          "<br> <b> IMC: </b>" + parseFloat(imc).toFixed(2) +
+          "<br> Olá " + nome + " , você está no nível de obesidade: <b> baixo peso. </b>" +
+          "<br> Com este nível de IMC você está propenso a apresentar os seguintes problemas de saúde: " +
+          "<br> <b> Maior probabilidade de anoxeria. </b>" +
+          "<br>-------------------------------------------------------------------<br>"
+
           }
-          </script>
 
+           // Peso Normal    
+           else if((parseFloat(imc) >= 18.5) &&  (parseFloat(imc) <= 24.9)){
+          
+          document.getElementById("demo").innerHTML = "-------------------------------------------------------------------" +
+          "<br>RESULTADO - IMC <br>" + 
+          "<br> <b> PACIENTE: </b>" + nome  +
+          "<br> <b> PESO: </b>" + parseFloat(peso) + 
+          "<br> <b> ALTURA: </b>" + parseFloat(altura) +
+          "<br> <b> IMC: </b>" + parseFloat(imc).toFixed(2) +
+          "<br> Olá " + nome + " , você está no nível de obesidade: <b> Peso Normal </b>" +
+          "<br> Com este nível de IMC você está propenso a apresentar a seguinte condição: " +
+          "<br> <b> Maior probabilidade de ser um individuo saudável. </b>" +
+          "<br>-------------------------------------------------------------------<br>"
 
+          }
 
+          // Pré-obesidade    
+          else if((imc >= 25) &&  (imc <= 29.9)){
+          
+          document.getElementById("demo").innerHTML = "-------------------------------------------------------------------" +
+          "<br>RESULTADO - IMC <br>" + 
+          "<br> <b> PACIENTE: </b>" + nome  +
+          "<br> <b> PESO: </b>" + parseFloat(peso) + 
+          "<br> <b> ALTURA: </b>" + parseFloat(altura) +
+          "<br> <b> IMC: </b>" + parseFloat(imc).toFixed(2) +
+          "<br> Olá " + nome + " , você está no nível de obesidade: <b> Pré-obesidade </b>" +
+          "<br> Com este nível de IMC você está propenso a apresentar os seguintes problemas de saúde: " +
+          "<br> <b> Alguma probabilidade de ter problemas de saúde. Predisposição a tornar-se obeso. </b>" +
+          "<br>-------------------------------------------------------------------<br>"
 
+          }
 
+          // Obesidade Grau I
+          else if((imc >= 30 ) &&  (imc <= 34.9)){
+          
+          document.getElementById("demo").innerHTML = "-------------------------------------------------" +
+          "<br>RESULTADO - IMC <br>" + 
+          "<br> <b> PACIENTE: </b>" + nome  +
+          "<br> <b> PESO: </b>" + parseFloat(peso) + 
+          "<br> <b> ALTURA: </b>" + parseFloat(altura) +
+          "<br> <b> IMC: </b>" + parseFloat(imc).toFixed(2) +
+          "<br> Olá " + nome + " , você está no nível de obesidade: <b> Obesidade Grau I </b>" +
+          "<br> Com este nível de IMC você está propenso a apresentar os seguintes problemas de saúde: " +
+          "<br> <b> Risco Moderado de diabetes tipo II, hipertensão, colesterol, cardiopatia. </b>" +
+          "<br>-------------------------------------------------<br>"
 
+          }
+          
+           // Obesidade Grau II
+          else if((imc >= 35 ) &&  (imc <= 39.9)){
+          
+          document.getElementById("demo").innerHTML = "-------------------------------------------------" +
+          "<br>RESULTADO - IMC <br>" + 
+          "<br> <b> PACIENTE: </b>" + nome  +
+          "<br> <b> PESO: </b>" + parseFloat(peso) + 
+          "<br> <b> ALTURA: </b>" + parseFloat(altura) +
+          "<br> <b> IMC: </b>" + parseFloat(imc).toFixed(2) +
+          "<br> Olá " + nome + " , você está no nível de obesidade: <b> Obesidade Grau II </b>" +
+          "<br> Com este nível de IMC você está propenso a apresentar os seguintes problemas de saúde: " +
+          "<br> <b> Risco Grave. Aumenta o risco das doenças associadas. O risco de mortalidade aumenta em 50%</b>" +
+          "<br>-------------------------------------------------<br>"
 
+          }
+
+          // Obesidade Grau III ou Obesidade Mórbida
+          else if(imc > 40){
+          
+          document.getElementById("demo").innerHTML = "-------------------------------------------------" +
+          "<br>RESULTADO - IMC <br>" + 
+          "<br> <b> PACIENTE: </b>" + nome  +
+          "<br> <b> PESO: </b>" + parseFloat(peso) + 
+          "<br> <b> ALTURA: </b>" + parseFloat(altura) +
+          "<br> <b> IMC: </b>" + parseFloat(imc).toFixed(2) +
+          "<br> Olá " + nome + " , você está no nível de obesidade: <b> Obesidade Grau II </b>" +
+          "<br> Com este nível de IMC você está propenso a apresentar os seguintes problemas de saúde: " +
+          "<br> <b> Risco Muito Grave. O risco de doenças associadas assim como a mortalidade aumenta em 90%</b>" +
+          "<br>-------------------------------------------------<br>"
+
+          }
+          
+          else{
+
+           alert("IMC incorreto. Por favor, refaça o teste inserindo dados corretamente");
+          
+          }
+          
+         }
+     
+      </script>
+ 
+ 
+ 
+ <style>
+
+    .footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px; 
+    line-height: 60px; 
+    background-color: #f5f5f5;
+    margin-top: 5rem;
+  }
+  </style>
 
 
   </head>
@@ -52,10 +169,10 @@
               Questões
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" href="#">Questão 1</a>
-              <a class="dropdown-item" href="#">Questão 2</a>
-              <a class="dropdown-item" href="atividadefinal/questao3.html">Questão 3</a>
-              <a class="dropdown-item" href="#">Questão 4</a>
+              <a class="dropdown-item" href="questao1.html">Questão 1</a>
+              <a class="dropdown-item" href="questao2.html">Questão 2</a>
+              <a class="dropdown-item" href="questao3.html">Questão 3</a>
+              <a class="dropdown-item" href="questao4.html">Questão 4</a>
               
             </div>
           </li>
@@ -63,46 +180,40 @@
       </div>
     </nav>
 
-
- 
     
     <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
-      <div class="col-md-5 p-lg-5 mx-auto my-5">
-        <h1 class="display-4 font-weight-normal">Questão 3</h1>
-        <p class="lead font-weight-normal">Faça um programa que receba o nome, salário e cargo de um funcionário e
-          mostre seu novo salário LÍQUIDO de acordo com as informações abaixo</p>
+      <div class="col-md-5 p-lg-1 mx-auto my-3">
+        <h1 class="display-5 font-weight-normal" style="text-align: center;">Questão 4</h1>
+        <h3 class="display-5 font-weight-normal" style="text-align: center;">IMC</h1>
       </div>
       <div class="product-device shadow-sm d-none d-md-block"></div>
       <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
     </div>
 
-
-
-  <br>
-<container>
-  <form name="gerar_contra" id="gerar_contra">
-    <div class="form-row">
-      <div class="form-group col-md-6">
-        <label>Funcionário</label>
-        <input type="text" class="form-control" name= "funcionario" id="funcionario" placeholder="Email">
+    <form name="check_ihc" id="check_ihc">
+      <div class="form-row" style="padding-left: 10rem; border-radius: 3px; margin-top: 80px;">
+        <div class="form-group col-md-3" >
+          <label for="nomePaciente">Nome</label>
+          <input type="text" class="form-control" id="nome_paciente" name="nome_paciente" required style="max-width: 90rem;">
+        </div>
+        <div class="form-group col-md-3" style="margin-left:15rem">
+          <label>Peso</label>
+          <input type="number" class="form-control" id="peso_paciente" name="peso_paciente" min="0" required style="max-width: 8rem;" placeholder="Ex: 65">
+        </div> 
+        <div class="form-group col-md-4">
+          <label>Altura</label>
+          
+          <input type="number" class="form-control" id="altura_paciente" name="altura_paciente" min="0" required pattern="[0-9]" style="max-width: 8rem;" placeholder="Ex: 1.75">
+          
+          <small>Altura precisa seguir o formato "x.xx"</small>
+        </div>
       </div>
-      <div class="form-group col-md-4">
-        <label  name="cargo" id="cargo" >Cargo</label>
-        <select  class="form-control">
-          <option selected>Selecione...</option>
-          <option value="Atendente">Antendente</option>
-          <option value="Estoquista">Estoquista</option>
-          <option value="Gerente">Gerente</option>
-        </select>
-      </div>
-      <div class="form-group col-md-6">
-        <label >Salário</label>
-        <input type="number" class="form-control" id="salario" placeholder="Email">
-      </div>
-
-    <button type="button" onclick="contracheque" class="btn btn-primary">Enviar</button>
+ <br> <center>
+    <button type="button" onclick="teste()" class="btn btn-primary btn-lg btn-toolbar">Descubra seu IMC!</button>
+    </center>
+    <p id="demo" style="text-align: center;"></p>
   </form>
-</container>
+
 
  <!-- footer -->
       <footer class="footer">
